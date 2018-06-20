@@ -24,7 +24,7 @@ services:
 #docker exec some-mariadb sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' > /some/path/on/your/host/all-databases.sql
 #Wordpress service
   drupal:
-    image: drupal:8-apache
+    image: drupal:${DRUPAL_VERSION}
     container_name: drupal-${CONTAINER_NAME}
     restart: unless-stopped
     environment:
