@@ -16,13 +16,11 @@ services:
     volumes:
       - "./mysql/datadir:/var/lib/mysql"
       - "./mysql/backup_mysql:/backup:ro"
-#      - /etc/localtime:/etc/localtime:ro
-#      - /etc/timezone:/etc/timezone:ro
 
     networks:
       - default
 #docker exec some-mariadb sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' > /some/path/on/your/host/all-databases.sql
-#Wordpress service
+#Drupal service
   drupal:
     image: drupal:${DRUPAL_VERSION}
     container_name: drupal-${CONTAINER_NAME}
@@ -41,8 +39,6 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
 
-#    ports:
-#      - 8080:80
     volumes:
       - "./html/modules:/var/www/html/modules"
       - "./html/profiles:/var/www/html/profiles"
